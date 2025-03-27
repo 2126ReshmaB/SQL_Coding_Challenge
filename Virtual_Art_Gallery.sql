@@ -4,7 +4,7 @@ use VirtualArtGallery;
 -- Artists Table --
 create table Artists (
        ArtistID INT PRIMARY KEY,
-	   Name VARCHAR(255) NOT NULL,
+       Name VARCHAR(255) NOT NULL,
        Biography TEXT,
        Nationality VARCHAR(100)
 );
@@ -12,15 +12,15 @@ create table Artists (
 -- Categories Table --
 create table Categories (
        CategoryID INT PRIMARY KEY,
-	   Name VARCHAR(100) NOT NULL
+       Name VARCHAR(100) NOT NULL
 );
 
 -- Artworks Table --
 create table Artworks (
        ArtworkID INT PRIMARY KEY,
        Title VARCHAR(255) NOT NULL,
-	   ArtistID INT,
-	   CategoryID INT,
+       ArtistID INT,
+       CategoryID INT,
        Year INT,
        Description TEXT,
        ImageURL VARCHAR(255),
@@ -32,7 +32,7 @@ create table Artworks (
 create table Exhibitions (
        ExhibitionID INT PRIMARY KEY,
        Title VARCHAR(255) NOT NULL,
-	   StartDate DATE,
+       StartDate DATE,
        EndDate DATE,
        Description TEXT
 );
@@ -41,7 +41,7 @@ create table Exhibitions (
 create table ExhibitionArtworks (
        ExhibitionID INT,
        ArtworkID INT,
-	   PRIMARY KEY (ExhibitionID, ArtworkID),         -- composite primary key
+       PRIMARY KEY (ExhibitionID, ArtworkID),         -- composite primary key
        FOREIGN KEY (ExhibitionID) REFERENCES Exhibitions (ExhibitionID),
        FOREIGN KEY (ArtworkID) REFERENCES Artworks (ArtworkID)
 );
@@ -55,7 +55,7 @@ insert into Artists (ArtistID, Name, Biography, Nationality) values
             
 -- Inserting Data into Categories Table --
 insert into Categories (CategoryID, Name) values
-		    (1, "Painting"),
+	    (1, "Painting"),
             (2, "Sculpture"),
             (3,"Photography");
 
@@ -63,16 +63,16 @@ insert into Categories (CategoryID, Name) values
 insert into Artworks (ArtworkID, Title, ArtistID, CategoryID, Year, Description, ImageURL) values
             (1, "Starry Night", 2, 1, 1889, "A famous painting by Vincent van Gogh", "starry_night.jpg"),
             (2, "Mona Lisa", 3, 1, 1503, "The iconic portrait by Leonardo da Vinci", "mona_lisa.jpg"), 
-			(3, "Guernica", 1, 1, 1937, "Pablo Picasso\'s powerful anti-war mural", "guernica.jpg");
+	    (3, "Guernica", 1, 1, 1937, "Pablo Picasso\'s powerful anti-war mural", "guernica.jpg");
             
 -- Inserting Data into Exhibitions Table --
 insert into Exhibitions (ExhibitionID, Title, StartDate, EndDate, Description) values
-			(1, "Modern Art Masterpieces", '2023-01-01', '2023-03-01', "A collection of modern art masterpieces"),
+	    (1, "Modern Art Masterpieces", '2023-01-01', '2023-03-01', "A collection of modern art masterpieces"),
             (2, "Renaissance Art", '2023-04-01', '2023-06-01', "A showcase of Renaissance art treasures");
             
 -- Inserting Data into ExhibitionArtworks Table --
 insert into ExhibitionArtworks (ExhibitionID, ArtworkID) values
-			(1,1),
+	    (1,1),
             (1,2),
             (1,3),
             (2,2);
