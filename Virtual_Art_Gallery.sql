@@ -118,7 +118,7 @@ select a.Name as ArtistName, aw.Title as ArtworkTitle from Artists a JOIN Artwor
 
 -- 10. List exhibitions that feature artwork by both Vincent van Gogh and Leonardo da Vinci
 
-select a.Name, a1.Name, e.ExhibitionTitle, e.StartDate, e.EndDate,e.Description from Exhibitions e JOIN ExhibitionArtworks ea ON e.ExhibitionID = ea.ExhibitionID JOIN Artworks aw ON ea.ArtworkID = aw.ArtworkID JOIN Artists a ON aw.ArtistID = a.ArtistID JOIN ExhibitionArtworks ea1 ON e.ExhibitionID = ea1.ExhibitionID JOIN Artworks aw1 ON ea1.ArtworkID = aw1.ArtworkID JOIN Artists a1 ON aw1.ArtistID = a1.ArtistID where a.Name = "Vincent van Gogh" and a1.Name = "Leonardo da Vinci";
+select a.Name, a1.Name, e.Title, e.StartDate, e.EndDate,e.Description from Exhibitions e JOIN ExhibitionArtworks ea ON e.ExhibitionID = ea.ExhibitionID JOIN Artworks aw ON ea.ArtworkID = aw.ArtworkID JOIN Artists a ON aw.ArtistID = a.ArtistID JOIN ExhibitionArtworks ea1 ON e.ExhibitionID = ea1.ExhibitionID JOIN Artworks aw1 ON ea1.ArtworkID = aw1.ArtworkID JOIN Artists a1 ON aw1.ArtistID = a1.ArtistID where a.Name = "Vincent van Gogh" and a1.Name = "Leonardo da Vinci";
 
 -- 11. Find all the artworks that have not been included in any exhibition
 
